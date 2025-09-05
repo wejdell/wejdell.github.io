@@ -6,6 +6,8 @@ lang: "en"
 excerpt_separator: "\n\n\n"
 date_format: "%B %d, %Y"
 
+remote_theme: contrast
+
 # Layout
 
 show_excerpts: true             # show article excerpts instead of archive list on the home page
