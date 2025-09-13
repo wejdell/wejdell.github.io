@@ -1,11 +1,10 @@
-title: "Blog Title"
-author: "Blog Author"
-description: "My blog"
+title: "Nicolas Wejdell"
+# author: "Blog Author"
+description: "Live Portfolio"
 permalink: /:title/
 lang: "en"
-excerpt_separator: "\n\n\n"
+excerpt_separator: <!--excerpt-end-->
 date_format: "%B %d, %Y"
-
 remote_theme: contrast
 
 # Layout
@@ -15,18 +14,21 @@ show_frame: true                # display a grey frame on large screens
 show_sidebar: false             # show a sidebar instead of the usual header
 show_minimal: false             # remove all clutter
 
-#show_frame: "/assets/images/background.svg"
+# show_frame: "/assets/images/background.svg"
 
 # Menu                          # for available icons see https://fontawesome.com/v5/icons/
 
-navigation:                     # accepts {file, title, url, icon, sidebaricon}
+navigation:                     # accepts {file, title, url, icon, sidebaricon} 
+  - {file: "Tarsier.md", title: "Tarsier", sidebaricon: home}
+  - {file: "Havtorn.md", title: "Havtorn", sidebaricon: home}
+  - {file: "Education.md", title: "Education", sidebaricon: home}
+  # - {file: "CV.md", title: "CV", sidebaricon: home}
   - {file: "archive.html", sidebaricon: home}
-  - {file: "README.md", sidebaricon: address-card}
 
 external:                       # accepts {file, title, url, icon, sidebaricon}
-  - {title: Mail, icon: envelope, url: "mailto:author@example.com"}
-  - {title: Github, icon: github, url: "https://github.com/niklasbuschmann/contrast"}
-  - {title: Subscribe, icon: rss, url: "/feed.xml"}
+  - {title: LinkedIn, icon: linkedin, url: "https://www.linkedin.com/in/nicolas-risberg/"}
+  - {title: Github, icon: github, url: "https://github.com/wejdell"}
+  - {title: Mail, icon: envelope, url: "mailto:nicolas.risberg@gmail.com"}
 
 comments:
 #  disqus_shortname: ""         # see https://disqus.com

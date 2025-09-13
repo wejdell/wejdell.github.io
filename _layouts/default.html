@@ -4,11 +4,14 @@
 {% include head.html %}
 
 <header class="hover smooth">
-  {% unless site.show_minimal and site.navigation and site.external %}
-    <h1 {% if site.navigation and site.external %}class="full"{% endif %}><a href="{{ "/" | relative_url }}">{{ site.title | escape }}</a></h1>
-  {% endunless %}
-  {% include menu.html menu=site.navigation %}
-  {% include menu.html menu=site.external %}
+    <img class="centered profileImg" src="/assets/images/profile_pic.jpg" width="190px">
+    {% unless site.show_minimal and site.navigation and site.external %}
+    <h1 {% if site.navigation and site.external %}class="full"{% endif %}>
+        <a href="{{ "/" | relative_url }}">{{ site.title | escape }}</a>
+    </h1>
+    {% endunless %}
+    {% include menu.html menu=site.navigation %}
+    {% include menu.html menu=site.external %}
 </header>
 
 {{ content }}
