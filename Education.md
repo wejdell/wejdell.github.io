@@ -25,6 +25,6 @@ layout: default
     {% include meta.html post=post %}
     {% assign excerptParts = post.excerpt | split: "<!--excerpt-begin-->" %}
     {{ excerptParts[1] | strip_newlines }}
-    <footer class="button"><a href="{{ post.url | relative_url }}">read more</a></footer>
+    <footer class="button dark nowrap"><a href="{{ post.url | relative_url }}">Read More</a></footer>
 </article>
   {% endfor %}

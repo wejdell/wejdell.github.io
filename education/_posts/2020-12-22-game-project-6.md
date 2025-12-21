@@ -22,10 +22,11 @@ date-string: APRIL 06, 2021
 * **Team**:     SoftBlob, 13 people
 
 ## My Contributions
+
 <!--excerpt-begin-->
 * **Gameplay** (<a href="#ability">Ability Architecture</a>, <a href="#navmesh">Navigation Mesh</a>)
-* **Graphics** (<a href="#rendering">Render Pipeline</a>, <a href="#spritetext">Sprite and Text Renderers</a>, <a href="#vfx">VFX Architecture</a>, <a href="#outline">Outline Depth Stencil Pass</a>)
-* **UI**	   (<a href="#ui">UI Architecture</a>, <a href="#animated">Animated Resource Orbs</a>, <a href="#dialogue">Dialogue System</a>, <a href="#floating">Floating Damage Numbers</a>, <a href="#popup">Popup Text Service</a>)
+* **Graphics** (<a href="#rendering">Render Pipeline</a>, <a href="#spritetext">Sprite and Text Rendering</a>, <a href="#vfx">VFX Architecture</a>, <a href="#outline">Outline Stencil Pass</a>)
+* **UI**	   (<a href="#ui">UI Architecture</a>, <a href="#animated">Resource Orbs</a>, <a href="#dialogue">Dialogue</a>, <a href="#floating">Damage Numbers</a>, <a href="#popup">Popup Text</a>)
 * **Audio**    (<a href="#fmod">FMod Wrapper and Audio Manager</a>)
 * **Voice Over, Music**
 <!--excerpt-end-->
