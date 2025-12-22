@@ -7,6 +7,14 @@ tags: [project, deferred rendering, rendering, ui, vfx, audio]
 date-string: APRIL 06, 2021
 ---
 
+<center>
+	<iframe width="720" height="405" src="https://www.youtube.com/embed/pdI-LQwd7ik?si=xx19s2vtRzH7JHtG" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+</center>
+
+<center>
+	<iframe src="https://itch.io/embed/1108064" width="720" height="167" frameborder="0"><a href="https://the-game-assembly.itch.io/tga19-p7-iam">TGA19 Game Project 7 - I AM by The Game Assembly</a></iframe>
+</center>
+
 ## Specifications
 
 * **Genre**:    3D FPX

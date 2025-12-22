@@ -1,11 +1,24 @@
 ---
 layout: post
-title: Game Project 8 - Besöket
+title: Game Project 8 - Besoket
 perma-link: "/education/project-8/"
 featured-image: /assets/images/project-8.gif
-tags: [project, deferred rendering, rendering, ui, vfx, audio]
+tags: [project, rendering, ui, audio]
 date-string: JUNE 18, 2021
 ---
+
+<center>
+	<iframe width="720" height="405" src="https://www.youtube.com/embed/R9eKjTaD22Y?si=tvvROig8QxMoyu7q" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+</center>
+
+<center>
+	<iframe src="https://itch.io/embed/1109245" width="720" height="167" frameborder="0"><a href="https://the-game-assembly.itch.io/tga19-p8-besoket">TGA19 Game Project 8 - Besoket by The Game Assembly</a></iframe>
+</center>
+
+<br>
+Our exam project turned out fairly popular, with thousands of views on <a href="https://the-game-assembly.itch.io/tga19-p8-besoket">itch.io</a> and more than 2000 downloads! Please enjoy the jank if you feel like trying it.
+<br>
+
 
 ## Specifications
 
@@ -16,11 +29,12 @@ date-string: JUNE 18, 2021
 
 ## My Contributions
 <!--excerpt-begin-->
-* **Graphics** (<a href="#hdr">HDR</a>, <a href="#volumetric_lighting">Volumetric Lighting</a>, <a href="#material">Material Pipeline</a>, <a href="#deferred_decals">Deferred Decals</a>, <a href="#vfx_editor">VFX Editor</a>, <a href="#vertex_paint">Vertex Painting</a>)
-* **UI**       (<a href="#animated_sprites">Animated sprites</a>, <a href="#ui_architecture">Extended Architecture</a>)
-* **Audio**    (<a href="#voice_line_event">Voice Line Event and Category Nodes</a>)
+* **Graphics** (<a href="#spotlights">Spot Lights</a>, <a href="#camera">Camera Improvements</a>)
+* **UI**       (<a href="#vignette">UI Improvements</a>)
+* **Audio**    (<a href="#spatialAudio">3D Audio</a>, <a href="#occlusion">Cone Based Occlusion</a>)
 * **Voice Over**
 <!--excerpt-end-->
+
 ## Details
 #### <a id="hdr">HDR</a>
 
