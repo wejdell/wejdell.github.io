@@ -107,7 +107,12 @@ void ExecuteRaymarching(inout float3 rayPositionLightVS, float3 invViewDirLightV
 
 Without any optimizations, this render pass is prohibitively expensive, requiring between 64 and 128 samples per fragment on a full resolution target to look serviceable. 
 
-<a href="/assets/images/shafts.jpg"><img class="centered full" src="/assets/images/shafts.jpg"></a>
+<div class="click-zoom">
+<label>
+    <input type="checkbox" />
+    <img class="centered" src="/assets/images/shafts.jpg">
+</label>
+</div>
 
 ## Optimization
 
@@ -156,10 +161,20 @@ After rendering to the accumulation buffer a bilateral Gaussian blur is applied,
 
 <div class="img-row">
   <div class="img-column">
-    <img src="/assets/images/gaussian_blur.png" style="width:100%">
+      <div class="click-zoom">
+        <label>
+            <input type="checkbox" />
+            <img class="centered" src="/assets/images/gaussian_blur.png">
+        </label>
+      </div>
   </div>
   <div class="img-column">
-    <img src="/assets/images/bilateral_blur.jpg" style="width:100%">
+        <div class="click-zoom">
+        <label>
+            <input type="checkbox" />
+            <img class="centered" src="/assets/images/bilateral_blur.jpg">
+        </label>
+      </div>
   </div>
 </div>
 
@@ -215,10 +230,20 @@ This meant the visibility function could not be evaluated, rendering them virtua
 
 <div class="img-row">
   <div class="img-column">
-    <img src="/assets/images/point_light.jpg" style="width:100%">
+      <div class="click-zoom">
+        <label>
+            <input type="checkbox" />
+            <img class="centered" src="/assets/images/point_light.jpg">
+        </label>
+      </div>
   </div>
   <div class="img-column">
-    <img src="/assets/images/box_light.jpg" style="width:100%">
+        <div class="click-zoom">
+        <label>
+            <input type="checkbox" />
+            <img class="centered" src="/assets/images/box_light.jpg">
+        </label>
+      </div>
   </div>
 </div>
 

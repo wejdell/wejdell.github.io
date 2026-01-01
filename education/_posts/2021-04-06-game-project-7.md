@@ -67,7 +67,12 @@ exported to our engine. The order of indices in the index buffer turned out to n
 
 In the pixel shader, all values associated with the PBR materials were interpolated using the color values as weights. 
 
-<img class="centered full" src="/assets/images/vertexPaint.gif">
+<div class="click-zoom">
+<label>
+    <input type="checkbox" />
+    <img class="centered" src="/assets/images/vertexPaint.gif">
+</label>
+</div>
 
 #### <a id="animated_sprites">Animated Sprites</a>
 I extended the sprite rendering I developed in project 6 to support spritesheet animations, breathing life into the crosshair especially. Animations were relatively easy to define in the json document already containing the sprite information, and the logic was general enough to make
@@ -79,7 +84,7 @@ The animation logic consisted of counting up the index of a collection of all re
 {::options parse_block_html="true" /}
 <details><summary markdown="span">**View Code**</summary>
 
-```json
+```c#
 ...
 "Animations": [
 {

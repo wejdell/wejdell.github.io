@@ -7,7 +7,7 @@ date-string: APRIL 06, 2021
 ---
 
 <center>
-	<iframe width="720" height="405" src="https://www.youtube.com/embed/5VBBRPEn-Tw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+	<iframe src="https://www.youtube.com/embed/5VBBRPEn-Tw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 </center>
 <br>
 <center>
@@ -82,11 +82,12 @@ on the player HUD.
 A fog texture is used three times with differently scaled UV to get the roiling effect of the liquid, and a fourth is used to colorize. One mask is used as the sphere shape, and another tiling mask 
 is scrolled horizontally to create the wave effect. I highlighted the glow on the very surface of the liquid by interpolating between the existing color and a defined glow color based on the UV distance to the "level" of the surface.
 
-<center>
-    <div class="photoset-grid-custom">
-       <img src="/assets/images/project_6_HUD.gif">
-    </div>
-</center>
+<div class="click-zoom">
+  <label>
+    <input type="checkbox" />
+    <img class="centered" src="/assets/images/project_6_HUD.gif">
+  </label>
+</div>
 
 This same principle is used on the health and experience bars, as well as on the cooldown effects on the ability icons.
 
@@ -94,33 +95,35 @@ This same principle is used on the health and experience bars, as well as on the
 I extended the dialogue system used in project 5 with features such as speaker portraits and titles. I also specialized it for use as the intro sequence of the game, scrolling voice line text 
 across the whole screen. 
 
-<center>
-    <div class="photoset-grid-custom">
-       <img src="/assets/images/project_6_dialogue.gif">
-    </div>
-</center>
+<div class="click-zoom">
+  <label>
+    <input type="checkbox" />
+    <img class="centered" src="/assets/images/project_6_dialogue.gif">
+  </label>
+</div>
 
 #### <a id="floating">Floating Damage Numbers</a>
 I developed a system used for spawning floating numbers above the player, for the genuine action RPG experience. Numbers were pooled and had different colors for varying strengths of
 critical hits and healing. I used an analytical function defined in code to animate the size of some of the numbers to make them visually pop. I also applied a force towards the bottom of
 the screen and had them randomize their starting directions, going in an arc over the center of the screen. 
 
-<center>
-    <div class="photoset-grid-custom">
-       <img src="/assets/images/project_6_floating_numbers.gif">
-    </div>
-</center>
-
+<div class="click-zoom">
+  <label>
+    <input type="checkbox" />
+    <img class="centered" src="/assets/images/project_6_floating_numbers.gif">
+  </label>
+</div>
 
 #### <a id="popup">Popup Text Service</a>
 The floating damage numbers were part of a greater utility, called the `PopupTextService`. Apart from the damage numbers, it could also spawn fading description cards for when the player 
 unlocked new skills, spawn warning text when the player's resource ran out and give instructions such as *Press Space to Continue* during dialogue breaks.
 
-<center>
-    <div class="photoset-grid-custom">
-       <img src="/assets/images/project_6_popups.gif">
-    </div>
-</center>
+<div class="click-zoom">
+  <label>
+    <input type="checkbox" />
+    <img class="centered" src="/assets/images/project_6_popups.gif">
+  </label>
+</div>
 
 Each of these instances had their own animation data, and all of these parameters were set in JSON documents.
 

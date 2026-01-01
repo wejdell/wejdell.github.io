@@ -31,10 +31,20 @@ These are still bound as render targets though, meaning they are overwritten by 
 
 <div class="img-row">
   <div class="img-column">
-    <img src="/assets/images/missing_material.gif" style="width:100%">
+    <div class="click-zoom">
+      <label>
+          <input type="checkbox" />
+          <img class="centered" src="/assets/images/missing_material.gif">
+      </label>
+    </div>
   </div>
   <div class="img-column">
-    <img src="/assets/images/missing_normals.gif" style="width:100%">
+  <div class="click-zoom">
+      <label>
+          <input type="checkbox" />
+          <img class="centered" src="/assets/images/missing_normals.gif">
+      </label>
+    </div>
   </div>
 </div>
 
@@ -138,12 +148,27 @@ The three screen shots below depict a decal being rendered to different parts of
 
 <div class="img-row">
   <div class="img-column">
-    <img src="/assets/images/decal_albedo.jpg" style="width:100%">
+    <div class="click-zoom">
+      <label>
+          <input type="checkbox" />
+          <img class="centered" src="/assets/images/decal_albedo.jpg">
+      </label>
+    </div>
   </div>
   <div class="img-column">
-    <img src="/assets/images/decal_material.jpg" style="width:100%">
+      <div class="click-zoom">
+        <label>
+            <input type="checkbox" />
+            <img class="centered" src="/assets/images/decal_material.jpg">
+        </label>
+      </div>
   </div>
   <div class="img-column">
-    <img src="/assets/images/decal_normal.jpg" style="width:100%">
+    <div class="click-zoom">
+      <label>
+          <input type="checkbox" />
+          <img class="centered" src="/assets/images/decal_normal.jpg">
+      </label>
+    </div>
   </div>
 </div>

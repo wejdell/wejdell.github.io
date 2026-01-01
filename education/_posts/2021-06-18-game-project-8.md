@@ -42,25 +42,33 @@ Our exam project turned out fairly popular, with thousands of views on <a href="
 * **Team**:     SoftBlob, 16 people
 
 ## My Contributions
-<!--excerpt-begin-->
 * **Graphics** (<a href="#spotlights">Spot Lights</a>, <a href="#camera">Camera Improvements</a>)
 * **UI**       (<a href="#vignette">UI Improvements</a>)
 * **Audio**    (<a href="#spatialAudio">3D Audio and Cone Based Occlusion</a>)
-* **Voice Over**
-<!--excerpt-end-->
+* **Voice Over & Sound Design**
 
 ## Details
 #### <a id="spotlights">Spot Lights</a>
 
-While missing shadowmapping for them, I added spotlight importing from Unity (which we used as a level editor during the final school projects) into the engine. They really contributed to the ambience
+While missing shadowmapping for them, I added support for spotlights imported from Unity (which we used as a level editor during the final school projects) into the engine. They really contributed to the ambience
 of the basement levels.
 
 <div class="img-row">
   <div class="img-column">
-    <img src="/assets/images/project_8-spotlight-import.gif" style="width:100%">
+      <div class="click-zoom">
+        <label>
+            <input type="checkbox" />
+            <img class="centered" src="/assets/images/project_8-spotlight-import.gif">
+        </label>
+      </div>
   </div>
   <div class="img-column">
-    <img src="/assets/images/besoket-1.png" style="width:100%">
+      <div class="click-zoom">
+        <label>
+            <input type="checkbox" />
+            <img class="centered" src="/assets/images/besoket-1.png">
+        </label>
+      </div>
   </div>
 </div>
 
@@ -72,10 +80,20 @@ ambiently and helps immersing the player.
 
 <div class="img-row">
   <div class="img-column">
-    <img src="/assets/images/project_8-subtle-bob.gif" style="width:100%">
+      <div class="click-zoom">
+        <label>
+            <input type="checkbox" />
+            <img class="centered" src="/assets/images/project_8-subtle-bob.gif">
+        </label>
+      </div>
   </div>
   <div class="img-column">
-    <img src="/assets/images/project_8-crazy-shake.gif" style="width:100%">
+      <div class="click-zoom">
+        <label>
+            <input type="checkbox" />
+            <img class="centered" src="/assets/images/project_8-crazy-shake.gif">
+        </label>
+      </div>
   </div>
 </div>
 
@@ -83,7 +101,12 @@ We were also aiming to play more with the main menu than we had before. As part 
 and let them represent different submenus. Below is an in-progress shot of the camera moving between a few such points during 
 development.
 
-<img class="centered full" src="/assets/images/project_8-menu-interpolation.gif">
+<div class="click-zoom">
+<label>
+    <input type="checkbox" />
+    <img class="centered" src="/assets/images/project_8-menu-interpolation.gif">
+</label>
+</div>
 
 #### <a id="vignette">UI Improvements</a>
 
@@ -92,10 +115,20 @@ overlay which was later animated when killed by the monster in the game.
 
 <div class="img-row">
   <div class="img-column">
-    <img src="/assets/images/project_8-post-processing.gif" style="width:100%">
+      <div class="click-zoom">
+        <label>
+            <input type="checkbox" />
+            <img class="centered" src="/assets/images/project_8-post-processing.gif">
+        </label>
+      </div>
   </div>
   <div class="img-column">
-    <img src="/assets/images/project-8.gif" style="width:100%">
+      <div class="click-zoom">
+        <label>
+            <input type="checkbox" />
+            <img class="centered" src="/assets/images/project-8.gif">
+        </label>
+      </div>
   </div>
 </div>
 

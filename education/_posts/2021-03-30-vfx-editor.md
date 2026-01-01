@@ -61,12 +61,22 @@ void IronWroughtImGui::CVFXEditorWindow::OnInspectorGUI()
 
 On pressing save, all data structures currently held by the window are serialized, written to a filepath set by the user, and the singular VFXSystemComponent is reinitialized using the new or modified JSON file.
 
-<a href="/assets/images/vfx_save.gif"><img class="centered full" src="/assets/images/vfx_save.gif"></a>
+<div class="click-zoom">
+  <label>
+      <input type="checkbox" />
+      <img class="centered" src="/assets/images/vfx_save.gif">
+  </label>
+</div>
 
 In the main window, VFX systems can be loaded and modified on the highest level. Effects can be added, and for every effect you can add any amount of VFX meshes and particle emitters. These can be offset and rotated about the associated game object, and each have their own delay and duration.
 Any mesh or particle emitter file can be modified by a button press, where the view changes to show the file name and all attributes associated with the selected mesh or emitter. Saving works the same way in this view, but the file name of the selected mesh or emitter can also be changed here. 
 
-<a href="/assets/images/vfx_open_separate_files.gif"><img class="centered full" src="/assets/images/vfx_open_separate_files.gif"></a>
+<div class="click-zoom">
+  <label>
+      <input type="checkbox" />
+      <img class="centered" src="/assets/images/vfx_open_separate_files.gif">
+  </label>
+</div>
 
 For the particle emitter file view, there are tweakable curves for color, size and direction of the particles. These curves are opened in a separate window. For every attribute that can be changed by a curve, there is an `A` and a `B` value, such as starting color and final color. 
 The curves are defined in the interpolation parameter (`y`-axis) over time (`x`-axis) coordinate system, meaning if the `y`-value at `x = 0` is `0`, the particle starts its lifetime at attribute value `A`, and if `y = 1`, the particle starts its lifetime at attribute value `B`.
@@ -124,7 +134,12 @@ void SVFXEffect::UpdateParticles(unsigned int anIndex, CParticleEmitter::SPartic
 
 When a curve is saved, the system is reinitialized.
 
-<a href="/assets/images/vfx_size_curve.gif"><img class="centered full" src="/assets/images/vfx_size_curve.gif"></a>
+<div class="click-zoom">
+  <label>
+      <input type="checkbox" />
+      <img class="centered" src="/assets/images/vfx_size_curve.gif">
+  </label>
+</div>
 
 ## Improvements
 

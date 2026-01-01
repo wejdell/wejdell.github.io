@@ -7,7 +7,7 @@ date-string: APRIL 06, 2021
 ---
 
 <center>
-	<iframe width="720" height="405" src="https://www.youtube.com/embed/URmdP2C9fW0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+	<iframe src="https://www.youtube.com/embed/URmdP2C9fW0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 </center>
 <br>
 <center>
@@ -53,11 +53,12 @@ allowing for smooth transitions between the edges of a room where the player cha
 When the player crossed one such bounding box, we would call it a *boundary transition*, entering a new room and setting a new constraining bounding box for the camera view. 
 We also had *level transitions*, where the camera would fade out and a different level would be loaded.
 
-<center>
-    <div class="photoset-grid-custom">
-       <img src="/assets/images/project_5_camera.gif">
-    </div>
-</center>
+<div class="click-zoom">
+  <label>
+    <input type="checkbox" />
+    <img class="centered" src="/assets/images/project_5_camera.gif">
+  </label>
+</div>
 
 #### <a id="weapons">Ice and Fire Weapon Logic</a>
 Apart from moving the blocks, the player could also change blocks. Using an ice ability, rock blocks could be frozen, transforming them into everything an icy block was. An icy 
@@ -71,11 +72,12 @@ character to change directions depending on the character's facing. I also desig
 from the braziers as well as an icy glinting coming off of the ice blocks. The particle system was also used in the inventory UI to mark the currently selected item. We also used it
 for a dust trail coming off of the player, a sparkling coming off of item chests, and dust arising from sliding regular blocks.
 
-<center>
-    <div class="photoset-grid-custom">
-       <img src="/assets/images/project_5_particles.gif">
-    </div>
-</center>
+<div class="click-zoom">
+  <label>
+    <input type="checkbox" />
+    <img class="centered" src="/assets/images/project_5_particles.gif">
+  </label>
+</div>
 
 #### <a id="point_lights">Point Light Logic</a>
 I set up components for point light lighting used for various effects, such as a fiery glow coming from the braziers, and icy sheen on the ice blocks and the point light centered on the
@@ -88,13 +90,24 @@ such as hint signs, the NPC character as well as the inventory system. The `Upda
 the letters to the screen while keeping the formatting, as well as automatically use line breaks so that they did not have to be added to the text itself. The scrolling text could be sped
 up and down by holding and releasing the spacebar, as well as skipped entirely.
 
-<center>
-    <div class="photoset-grid-custom" data-layout="3">
-       <img src="/assets/images/project_5_hint.png">
-       <img src="/assets/images/project_5_dialogue.gif">
-       <img src="/assets/images/project_5_inventory.gif">
-    </div>
-</center>
+<div class="click-zoom">
+  <label>
+    <input type="checkbox" />
+    <img class="centered" src="/assets/images/project_5_hint.png">
+  </label>
+</div>
+<div class="click-zoom">
+  <label>
+    <input type="checkbox" />
+    <img class="centered" src="/assets/images/project_5_dialogue.gif">
+  </label>
+</div>
+<div class="click-zoom">
+  <label>
+    <input type="checkbox" />
+    <img class="centered" src="/assets/images/project_5_inventory.gif">
+  </label>
+</div>
 
 #### <a id="audio">Audio Manager and Logic</a>
 Finally I implemented an audio manager featuring self-made channel logic, as the TGA2D engine used Bass as its audio API. The channels could be used for grouping sound volumes, as well as
