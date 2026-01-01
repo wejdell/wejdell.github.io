@@ -9,10 +9,22 @@ date-string: APRIL 06, 2021
 <center>
 	<iframe width="720" height="405" src="https://www.youtube.com/embed/5VBBRPEn-Tw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 </center>
-
+<br>
 <center>
   <b><a href="https://drive.google.com/file/d/12V6g5zM4MbOF1qL2JL7-1es_llaWa8Kw/view?usp=sharing" download="Bloodloss_Installer.exe">Download Link</a></b>
 </center>
+
+<br>
+
+<!--excerpt-begin-->
+<center>
+    <important><i>
+		A kingdom nearing ruin! Fight your way to the castle to confront your father, King Ulberic, and find answers to this tragedy.
+    </i></important>
+</center>
+<!--excerpt-end-->
+
+<br>
 
 ## Specifications
 
@@ -23,13 +35,11 @@ date-string: APRIL 06, 2021
 
 ## My Contributions
 
-<!--excerpt-begin-->
 * **Gameplay** (<a href="#ability">Ability Architecture</a>, <a href="#navmesh">Navigation Mesh</a>)
 * **Graphics** (<a href="#rendering">Render Pipeline</a>, <a href="#spritetext">Sprite and Text Rendering</a>, <a href="#vfx">VFX Architecture</a>, <a href="#outline">Outline Stencil Pass</a>)
 * **UI**	   (<a href="#ui">UI Architecture</a>, <a href="#animated">Resource Orbs</a>, <a href="#dialogue">Dialogue</a>, <a href="#floating">Damage Numbers</a>, <a href="#popup">Popup Text</a>)
 * **Audio**    (<a href="#fmod">FMod Wrapper and Audio Manager</a>)
 * **Voice Over, Music**
-<!--excerpt-end-->
 
 ## Details
 #### <a id="ability">Ability Architecture</a>

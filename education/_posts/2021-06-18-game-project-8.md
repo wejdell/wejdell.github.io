@@ -8,15 +8,30 @@ date-string: JUNE 18, 2021
 ---
 
 <center>
-	<iframe width="100%" height="100%" src="https://www.youtube.com/embed/R9eKjTaD22Y?si=tvvROig8QxMoyu7q" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+	<iframe src="https://www.youtube.com/embed/R9eKjTaD22Y?si=tvvROig8QxMoyu7q" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 </center>
 
 <center>
-	<iframe src="https://itch.io/embed/1109245" width="100%" height="167" frameborder="0"><a href="https://the-game-assembly.itch.io/tga19-p8-besoket">TGA19 Game Project 8 - Besoket by The Game Assembly</a></iframe>
+<div class="iframe itchIframe">
+	<iframe src="https://itch.io/embed/1109245" frameborder="0"><a href="https://the-game-assembly.itch.io/tga19-p8-besoket">TGA19 Game Project 8 - Besoket by The Game Assembly</a></iframe>
+</div>
 </center>
 
 <br>
+
+<!--excerpt-begin-->
+<center>
+    <important><i>
+        You respond to a cry of help from your friend, locked in a strange Swedish cottage.
+        Find a way to free your friend, solve the puzzles all while evading the unknown horrors of the house. You better be careful, or this act of kindness might be your last.
+    </i></important>
+</center>
+<!--excerpt-end-->
+
+<br>
+
 Our exam project turned out fairly popular, with thousands of views on <a href="https://the-game-assembly.itch.io/tga19-p8-besoket">itch.io</a> and more than 2000 downloads! Please enjoy the jank if you feel like trying it.
+
 <br>
 
 ## Specifications
@@ -37,7 +52,7 @@ Our exam project turned out fairly popular, with thousands of views on <a href="
 ## Details
 #### <a id="spotlights">Spot Lights</a>
 
-While missing shadowmapping for them, I added spotlight importing from Unity into the engine. They really contributed to the ambience
+While missing shadowmapping for them, I added spotlight importing from Unity (which we used as a level editor during the final school projects) into the engine. They really contributed to the ambience
 of the basement levels.
 
 <div class="img-row">

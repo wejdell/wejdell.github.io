@@ -8,11 +8,13 @@ layout: default
   {% include meta.html post=page %}
 
   <center>
-    <iframe width="720" height="405" src="https://www.youtube.com/embed/xCQo60PWWYA?si=Z32xA23aYdCO9TMN" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+    <iframe src="https://www.youtube.com/embed/xCQo60PWWYA?si=Z32xA23aYdCO9TMN" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
   </center>
   
   <center>
-    <iframe title="Steam store widget" src="https://store.steampowered.com/widget/2129530/" frameborder="0" width="720" height="190" scroll="auto"></iframe>
+  <div class="iframe steamIframe">
+	<iframe title="Steam store widget" src="https://store.steampowered.com/widget/2129530/" frameborder="0" scroll="auto"></iframe>
+  </div>
   </center>
 
   <md-block>

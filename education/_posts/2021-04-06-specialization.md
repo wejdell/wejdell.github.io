@@ -10,8 +10,6 @@ date-string: APRIL 06, 2021
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 <script>window.jQuery || document.write('<script src="_/js/libs/jquery-1.9.1.min.js"><\/script>')</script>
 
-https://stackoverflow.com/questions/77291659/click-image-to-enlarge-to-specific-size-click-again-brings-it-back-to-original
-
 ## Introduction
 
 Concurrently with our seventh game project at The Game Assembly, we had the opportunity to specialize; to plan an independent foray into a subject which we wanted to explore further.

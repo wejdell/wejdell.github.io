@@ -12,8 +12,22 @@ date-string: APRIL 06, 2021
 </center>
 
 <center>
+<div class="iframe itchIframe">
 	<iframe src="https://itch.io/embed/1108064" width="720" height="167" frameborder="0"><a href="https://the-game-assembly.itch.io/tga19-p7-iam">TGA19 Game Project 7 - I AM by The Game Assembly</a></iframe>
+</div>
 </center>
+
+<br>
+
+<!--excerpt-begin-->
+<center>
+    <important><i>
+		You took something you shouldn't have! Use the gravity glove you stole to overcome obstacles and dangerous robots as you seek your freedom.
+    </i></important>
+</center>
+<!--excerpt-end-->
+
+<br>
 
 ## Specifications
 
@@ -23,12 +37,10 @@ date-string: APRIL 06, 2021
 * **Team**:     SoftBlob, 16 people
 
 ## My Contributions
-<!--excerpt-begin-->
 * **Graphics** (<a href="#hdr">HDR</a>, <a href="#volumetric_lighting">Volumetric Lighting</a>, <a href="#material">Material Pipeline</a>, <a href="#deferred_decals">Deferred Decals</a>, <a href="#vfx_editor">VFX Editor</a>, <a href="#vertex_paint">Vertex Painting</a>)
 * **UI**       (<a href="#animated_sprites">Animated sprites</a>, <a href="#ui_architecture">Extended Architecture</a>)
 * **Audio**    (<a href="#voice_line_event">Voice Line Event and Category Nodes</a>)
 * **Voice Over**
-<!--excerpt-end-->
 ## Details
 #### <a id="hdr">HDR</a>
 

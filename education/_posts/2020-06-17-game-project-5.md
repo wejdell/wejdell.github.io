@@ -9,10 +9,22 @@ date-string: APRIL 06, 2021
 <center>
 	<iframe width="720" height="405" src="https://www.youtube.com/embed/URmdP2C9fW0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 </center>
-
+<br>
 <center>
   <b><a href="https://drive.google.com/file/d/1DOj4Rnva5974HHe4X_qE7rS9Jccwu0Pu/view?usp=sharing" download="Ellah_Installer.exe">Download Link</a></b>
 </center>
+
+<br>
+
+<!--excerpt-begin-->
+<center>
+    <important><i>
+        Puzzle your way through the ruins of a long gone society and learn their history.
+    </i></important>
+</center>
+<!--excerpt-end-->
+
+<br>
 
 ## Specifications
 
@@ -23,13 +35,11 @@ date-string: APRIL 06, 2021
 
 ## My Contributions
 
-<!--excerpt-begin-->
 * **Gameplay** (<a href="#blocks">Movable Blocks</a>, <a href="#camera">Camera System</a>, <a href="#weapons">Ice and Fire Weapon Logic</a>)
 * **Graphics** (<a href="#particles">Particle System Architecture</a>, <a href="#point_lights">Point Light Logic</a>)
 * **UI**       (<a href="#dialogue">Dialogue System used for Hint Signs, NPC Dialogue and Inventory Lore Text</a>)
 * **Audio**    (<a href="#audio">Audio Manager and Logic</a>)
 * **Voice Over, Music**
-<!--excerpt-end-->
 
 ## Details
 #### <a id="blocks">Movable Blocks</a>
