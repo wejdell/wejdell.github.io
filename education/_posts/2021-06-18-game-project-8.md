@@ -21,10 +21,7 @@ date-string: JUNE 18, 2021
 
 <!--excerpt-begin-->
 <center>
-    <important><i>
-        You respond to a cry of help from your friend, locked in a strange Swedish cottage.
-        Find a way to free your friend, solve the puzzles all while evading the unknown horrors of the house. You better be careful, or this act of kindness might be your last.
-    </i></important>
+<i>You respond to a cry of help from your friend, locked in a strange Swedish cottage. Find a way to free your friend, solve the puzzles all while evading the unknown horrors of the house. You better be careful, or this act of kindness might be your last..</i>
 </center>
 <!--excerpt-end-->
 

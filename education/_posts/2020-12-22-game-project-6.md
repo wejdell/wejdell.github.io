@@ -18,9 +18,7 @@ date-string: APRIL 06, 2021
 
 <!--excerpt-begin-->
 <center>
-    <important><i>
-		A kingdom nearing ruin! Fight your way to the castle to confront your father, King Ulberic, and find answers to this tragedy.
-    </i></important>
+<i>A kingdom nearing ruin! Fight your way to the castle to confront your father, King Ulberic, and find answers to this tragedy.</i>
 </center>
 <!--excerpt-end-->
 

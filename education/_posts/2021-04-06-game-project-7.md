@@ -21,9 +21,7 @@ date-string: APRIL 06, 2021
 
 <!--excerpt-begin-->
 <center>
-    <important><i>
-		You took something you shouldn't have! Use the gravity glove you stole to overcome obstacles and dangerous robots as you seek your freedom.
-    </i></important>
+<i>You took something you shouldn't have! Use the gravity glove you stole to overcome obstacles and dangerous robots as you seek your freedom.</i>
 </center>
 <!--excerpt-end-->
 

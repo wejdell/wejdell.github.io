@@ -18,9 +18,7 @@ date-string: APRIL 06, 2021
 
 <!--excerpt-begin-->
 <center>
-    <important><i>
-        Puzzle your way through the ruins of a long gone society and learn their history.
-    </i></important>
+<i>Puzzle your way through the ruins of a long gone society and learn their history.</i>
 </center>
 <!--excerpt-end-->
 
