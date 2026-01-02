@@ -73,9 +73,10 @@ for (SScriptComponent* component : scriptComponents)
 This means that any number of entities can reference a script (loaded once in memory) and have it run logic on the entity's own data. Just like any other ECS system, the script's job is to 
 manipulate data owned by ECS components. It's just a system that you can author in the editor.
 
-Havtorn doesn't have a reflection system (yet?), and authoring nodes is a manual process currently. The overhead isn't huge, but we're considering what the best strategic approach would be. Be
-that have many small nodes that affect one property, and try to streamline the creation of those, or focus more on larger nodes that have more control over all the data held in a component for example.
-I think it will have to be some sort of combination, and should be driven by the needs of the project.
+## Authoring Nodes
+
+Havtorn doesn't have a reflection system (yet?), and authoring nodes is a manual process currently. The overhead isn't huge, but we're considering what the best strategic approach would be. Perhaps that would be having many small nodes that affect one property, and try to streamline the creation of those, or focus more on larger nodes that have more control over all the data held in a component for example.
+I think it will have to be some sort of combination, and should be driven by the needs of the current project we're working on. Here's an example of a simple core functionality node.
 
 {::options parse_block_html="true" /}
 <details><summary markdown="span">**View Code**</summary>
