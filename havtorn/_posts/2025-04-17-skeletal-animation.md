@@ -22,6 +22,7 @@ to get our final world space bone transform, and send that off to the shader.
 <details><summary markdown="span">**View Code**</summary>
 
 ```c++
+// CAnimationGraphSystem.cpp
 ...
 
 // Read local poses of playing animations
@@ -29,8 +30,9 @@ for (SSkeletalAnimationPlayData& playData : component->PlayData)
 {
     if (!UMath::IsWithin(playData.AssetReferenceIndex, 0u, STATIC_U32(component->AssetReferences.size())))
       continue;
-  
-    const SSkeletalAnimationAsset* animationAsset = assetRegistry->RequestAssetData<SSkeletalAnimationAsset>(component->AssetReferences[playData.AssetReferenceIndex], component->Owner.GUID);
+    
+    const U32 index = component->AssetReferences[playData.AssetReferenceIndex];
+    const SSkeletalAnimationAsset* animationAsset = assetRegistry->RequestAssetData<SSkeletalAnimationAsset>(index, component->Owner.GUID);
     if (animationAsset == nullptr)
       continue;
   
