@@ -6,8 +6,9 @@ featured-image: /assets/images/shaderHotCompile.gif
 tags: [havtorn, rendering, shader]
 ---
 
+increases iteration speed and simplifies debugging of graphics features
 <!--excerpt-begin-->
-Reloading shaders while the engine is running vastly decreases the development and debugging times of graphics features. Granted we're 
+Reloading shaders while the engine is running vastly increases your iteration speed and simplifies the debugging of old and new graphics features. Granted we're 
 talking about explicitly named, persistent shaders here and not some material-based, automatically generated solution. As you're 
 starting out making an engine this is most likely the setup you'll be using for a while, and while implementing features such as 
 <a href="https://en.wikipedia.org/wiki/Screen_space_ambient_occlusion">SSAO</a> or <a href="https://en.wikipedia.org/wiki/Tone_mapping">tone mapping</a>,
@@ -17,7 +18,7 @@ starting out making an engine this is most likely the setup you'll be using for 
 ## File Watching
 
 Havtorn has a simple, request-based file watching system running on a separate thread, which is also used to <a href="{{site.baseurl}}/asset-hot-reloading/">hot reload assets</a>. 
-We set it up to run on a separate thread on initialization, 
+We set it up to run on a separate thread on initialization of all core engine systems, and `sleep` it intermittently. 
 
 {::options parse_block_html="true" /}
 <details><summary markdown="span">**View Code**</summary>
@@ -60,15 +61,26 @@ void CFileWatcher::UpdateChanges()
 </details>
 {::options parse_block_html="false" /}
 
-The `WatchedFiles` property is a `std::map` we write to when requesting a file watch on the main thread. When we do, we provide an `std::function` object, 
-which we convert to an `std::shared_ptr` when requesting removal (to make sure we remove the correct entry). In our case the file watcher 
-is used only by big systems such as the editor and the renderer, which have longer lifetimes, so this isn't a huge issue. Though it would make sense to associate 
-the callbacks with a handle for direct access, and to validate the objects the callbacks are associated with prior to calling them, if needed.
+The `WatchedFiles` property is an `std::map` we write to when requesting to watch a file on the main thread. We also provide an instance of 
+a thin struct bundling our `std::function` callbacks with an explicit handle that the calling code must provide. This way we can easily find 
+and remove the callback when we want to stop watching for changes to the file.
 
 {::options parse_block_html="true" /}
 <details><summary markdown="span">**View Code**</summary>
 ```c++
-bool CFileWatcher::WatchFileChange(const std::string& filePath, CFileChangeCallback callback)
+struct SFileChangeCallback
+{
+    SFileChangeCallback() = delete;
+    explicit SFileChangeCallback(const std::function<void(const std::string&)>& function, const U64& handle)
+        : Function(function)
+        , Handle(handle)
+    {}
+
+    std::function<void(const std::string&)> Function;
+    U64 Handle = 0;
+}
+
+bool CFileWatcher::WatchFileChange(const std::string& filePath, SFileChangeCallback callback)
 {
     const std::filesystem::path newPath = filePath.c_str();
 
@@ -84,7 +96,7 @@ bool CFileWatcher::WatchFileChange(const std::string& filePath, CFileChangeCallb
     return true;
 }
 
-void CFileWatcher::StopWatchFileChange(const std::string& filePath, CFileChangeCallback callback)
+void CFileWatcher::StopWatchFileChange(const std::string& filePath, const U64& callbackHandle)
 {	
     const std::filesystem::path existingPath = filePath.c_str();
 
@@ -95,10 +107,12 @@ void CFileWatcher::StopWatchFileChange(const std::string& filePath, CFileChangeC
         return;
 
     std::lock_guard<std::mutex> lock(Mutex);
-    std::vector<CFileChangeCallback>& callbackContainer = StoredCallbacks.at(existingPath);
-    ...
-    // Find callback to erase by some means
-    ...
+    std::vector<SFileChangeCallback>& callbackContainer = StoredCallbacks.at(existingPath);
+
+    auto it = std::ranges::find(callbackContainer, callbackHandle, &SFileChangeCallback::Handle);
+    if (it == callbackContainer.end())
+        return;
+    
     callbackContainer.erase(it);
 
     if (!callbackContainer.empty())
@@ -112,7 +126,7 @@ void CFileWatcher::StopWatchFileChange(const std::string& filePath, CFileChangeC
 {::options parse_block_html="false" /}
 
 While `UpdateChanges` runs on the file watch thread, we try to `FlushChanges` at a set point on the main thread, where we go through
-the queued up changes from the file watch thread and call the callbacks. 
+the queued up changes from the file watch thread and call all the callbacks. 
 
 {::options parse_block_html="true" /}
 <details><summary markdown="span">**View Code**</summary>
@@ -122,18 +136,15 @@ void CFileWatcher::FlushChanges()
     std::lock_guard<std::mutex> lock(Mutex);
     while (!QueuedFileChanges.empty())
     {
-        const std::filesystem::path& filePath = QueuedFileChanges.front();
-        if (!StoredCallbacks.contains(filePath))
-        {
-            QueuedFileChanges.pop();
-            continue;
-        }
-
-        const std::vector<CFileChangeCallback>& callbacks = StoredCallbacks[filePath];
-        for (const CFileChangeCallback& callback : callbacks)
-        callback(filePath.string());
-		
+        const std::filesystem::path filePath = QueuedFileChanges.front();
         QueuedFileChanges.pop();
+
+        if (!StoredCallbacks.contains(filePath))
+            continue;
+
+        const std::vector<SFileChangeCallback>& callbacks = StoredCallbacks[filePath];
+        for (const SFileChangeCallback& callback : callbacks)
+            callback.Function(filePath.string());
     }
 }
 ```
@@ -177,9 +188,9 @@ std::string CRenderStateManager::AddShader(const std::string& filePath, const U6
     const std::string sourceFile = UGeneralUtils::DeriveSourceFileFromPath(filePath, "hlsl");
     if (!ShaderInitData.contains(sourceFile))
     {
-        GEngine::GetFileWatcher()->WatchFileChange(sourceFile, std::bind(&CRenderStateManager::OnShaderSourceChange, this, std::placeholders::_1));
+        GEngine::GetFileWatcher()->WatchFileChange(sourceFile, SFileChangeCallback(std::bind(&CRenderStateManager::OnShaderSourceChange, this, std::placeholders::_1), OnShaderSourceChangeFunctionHandle));
         
-        // NW: Save some extra context about the file so we can easily replace it later
+        // NW: Save some extra context about the file so we can call this function with the same parameters again later
         ShaderInitData.emplace(sourceFile, SShaderInitData{ filePath, shaderType, index });
     }
 
@@ -190,10 +201,10 @@ std::string CRenderStateManager::AddShader(const std::string& filePath, const U6
 {::options parse_block_html="false" /}
 
 When the source file changes, we queue up the file path to be recompiled to a new binary at a good time, similar to what we did in the `FileWatcher`. 
-In this case, we go flush the changes when the main thread and render thread sync and swap resources. 
+In this case, we flush the changes when the main thread and render thread sync and swap resources. 
 
 This code is specific to DirectX11, but the same principles apply. Implementations and compilers used for Vulkan and even DirectX12 will differ, 
-but the information is pretty easy to find. Havtorn doesn't yet support the newer generation of backends so I will just show our solution for the 
+but the information seems fairly easy to find. Havtorn doesn't yet support the newer generation of backends so I will just show our solution for the 
 DirectX11 case here. 
 
 {::options parse_block_html="true" /}
@@ -215,6 +226,7 @@ void CRenderStateManager::FlushShaderChanges()
     while (!QueuedShaderRecompiles.empty())
     {
         const std::string changedSourceFile = QueuedShaderRecompiles.front();
+        QueuedShaderRecompiles.pop();
 
         const SShaderInitData initData = ShaderInitData.at(changedSourceFile);
         const std::wstring wideSourceFilePath = { changedSourceFile.begin(), changedSourceFile.end() };
@@ -246,7 +258,6 @@ void CRenderStateManager::FlushShaderChanges()
         if (compileResult != S_OK)
         {
             HV_LOG_ERROR("CRenderStateManager::OnShaderSourceChange: Shader %s could not be recompiled: %s", changedSourceFile.c_str(), (char*)errorMessages->GetBufferPointer());
-            QueuedShaderRecompiles.pop();
             errorMessages->Release();
             break;
         }
@@ -255,7 +266,6 @@ void CRenderStateManager::FlushShaderChanges()
         if (rewriteResult != S_OK)
         {
             HV_LOG_ERROR("CRenderStateManager::OnShaderSourceChange: Shader %s was successfully recompiled, but output file could not be overwritten.", changedSourceFile.c_str());
-            QueuedShaderRecompiles.pop();
             compiledContents->Release();
             break;
         }
@@ -266,18 +276,16 @@ void CRenderStateManager::FlushShaderChanges()
         AddShader(initData.OutputFileName, initData.ShaderIndex, initData.ShaderType);
 
         HV_LOG_INFO("Shader source file %s was recompiled.", changedSourceFile.c_str());
-
-        QueuedShaderRecompiles.pop();
     }
 }
 ```
 </details>
 {::options parse_block_html="false" /}
 
-Note the custom *include handler* used in the compilation call. DirectX (I'm not sure about Vulkan) needs this to know what to do when it comes across an `#include` 
-in the hlsl source during compilation. You can provide a default one by using the `D3D_COMPILE_STANDARD_FILE_INCLUDE` macro, which will find files relative to the 
-source file directory, or pass `nullptr` if you don't include any files in the shader source. In our case, we're including files from a specific `Includes` directory 
-in the shader source directory, and some include files include other include files also relative to this directory. I ended up with this custom include handler for use 
+Note the custom *include handler* used in the compilation call. DirectX (I'm not sure about Vulkan) needs this to know what to do when it comes across an `#include` directive 
+in the hlsl source code during compilation. You can provide a default one by using the `D3D_COMPILE_STANDARD_FILE_INCLUDE` macro, which will find files relative to the 
+source file directory, or pass `nullptr` if you don't include any files in the source code. In our case, we're including files from a specific `Includes` directory 
+in the shader source directory, and some include files include other files also relative to this directory. I ended up with this custom include handler for use 
 under these very specific conditions.
 
 {::options parse_block_html="true" /}
