@@ -124,7 +124,7 @@ void CFileWatcher::StopWatchFileChange(const std::string& filePath, const U64& c
 </details>
 {::options parse_block_html="false" /}
 
-While `UpdateChanges` runs on the file watch thread, we try to `FlushChanges` at a set point on the main thread, where we go through
+While `UpdateChanges` runs on the file watch thread, we try to `FlushChanges` at a known point on the main thread (e.g. at the start or end of a frame), where we go through 
 the queued up changes from the file watch thread and call all the callbacks. 
 
 {::options parse_block_html="true" /}
@@ -153,8 +153,8 @@ void CFileWatcher::FlushChanges()
 ## Shader Hot Reload
 
 At the point of loading shaders, we also find the corresponding source files and start watching them for changes. Naturally, we wouldn't want 
-or need to do this for release builds. Notably I'm making it easy for myself here - again because we have an explicit, static set of shaders -
-by storing the shaders in multiple `std::array`s, so that we can just switch them out when reloading them.
+or need to do this for release builds. Notably I'm making it easy for myself here. Because we have an explicit, static set of shaders, 
+we can store them in `std::array`s and just index into those directly to switch out the shaders when reloading them.
 
 {::options parse_block_html="true" /}
 <details><summary markdown="span">**View Code**</summary>
@@ -199,10 +199,10 @@ std::string CRenderStateManager::AddShader(const std::string& filePath, const U6
 </details>
 {::options parse_block_html="false" /}
 
-When the source file changes, we queue up the file path to be recompiled to a new binary at a good time, similar to what we did in the `FileWatcher`. 
+When the source file changes, we queue up the file path to be recompiled to a new binary at a good time, similar to what we do in the `FileWatcher`. 
 In this case, we flush the changes when the main thread and render thread sync and swap resources. 
 
-This code is specific to DirectX11, but the same principles apply to other backends. Implementations and compilers used for Vulkan and even DirectX12 will differ, 
+This code is specific to DirectX11, but the same principles apply for other backends. Implementations and compilers used for Vulkan and even DirectX12 will differ, 
 but the information seems fairly easy to find. Havtorn doesn't yet support the newer generation of backends so I will just show our solution for the 
 DirectX11 case here. 
 
