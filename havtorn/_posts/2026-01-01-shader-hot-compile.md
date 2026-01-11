@@ -6,19 +6,18 @@ featured-image: /assets/images/shaderHotCompile.gif
 tags: [havtorn, rendering, shader]
 ---
 
-increases iteration speed and simplifies debugging of graphics features
 <!--excerpt-begin-->
-Reloading shaders while the engine is running vastly increases your iteration speed and simplifies the debugging of old and new graphics features. Granted we're 
-talking about explicitly named, persistent shaders here and not some material-based, automatically generated solution. As you're 
-starting out making an engine this is most likely the setup you'll be using for a while, and while implementing features such as 
-<a href="https://en.wikipedia.org/wiki/Screen_space_ambient_occlusion">SSAO</a> or <a href="https://en.wikipedia.org/wiki/Tone_mapping">tone mapping</a>,
- it will be incredibly helpful to be able to tweak parameters or formulas on the fly.
+Reloading shaders while the engine is running vastly increases your iteration speed and simplifies the debugging of old and new graphics features. 
 <!--excerpt-end-->
+Granted we're talking about explicitly named, persistent shaders here and not some material-based, automatically generated solution. As you're 
+starting out making an engine this is most likely the setup you'll be using for a while, and while implementing features such as 
+<a href="https://en.wikipedia.org/wiki/Screen_space_ambient_occlusion">SSAO</a> or <a href="https://en.wikipedia.org/wiki/Tone_mapping">tone mapping</a>, 
+it will be incredibly helpful to be able to tweak parameters or formulas on the fly.
 
 ## File Watching
 
 Havtorn has a simple, request-based file watching system running on a separate thread, which is also used to <a href="{{site.baseurl}}/asset-hot-reloading/">hot reload assets</a>. 
-We set it up to run on a separate thread on initialization of all core engine systems, and `sleep` it intermittently. 
+We set it up to run on a separate thread at the point of initializing all core engine systems, and `sleep` it intermittently. 
 
 {::options parse_block_html="true" /}
 <details><summary markdown="span">**View Code**</summary>
@@ -190,7 +189,7 @@ std::string CRenderStateManager::AddShader(const std::string& filePath, const U6
     {
         GEngine::GetFileWatcher()->WatchFileChange(sourceFile, SFileChangeCallback(std::bind(&CRenderStateManager::OnShaderSourceChange, this, std::placeholders::_1), OnShaderSourceChangeFunctionHandle));
         
-        // NW: Save some extra context about the file so we can call this function with the same parameters again later
+        // NW: Save some extra context about the file so we can call this function with the same arguments again later
         ShaderInitData.emplace(sourceFile, SShaderInitData{ filePath, shaderType, index });
     }
 
