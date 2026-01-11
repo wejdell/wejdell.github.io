@@ -202,7 +202,7 @@ std::string CRenderStateManager::AddShader(const std::string& filePath, const U6
 When the source file changes, we queue up the file path to be recompiled to a new binary at a good time, similar to what we did in the `FileWatcher`. 
 In this case, we flush the changes when the main thread and render thread sync and swap resources. 
 
-This code is specific to DirectX11, but the same principles apply. Implementations and compilers used for Vulkan and even DirectX12 will differ, 
+This code is specific to DirectX11, but the same principles apply to other backends. Implementations and compilers used for Vulkan and even DirectX12 will differ, 
 but the information seems fairly easy to find. Havtorn doesn't yet support the newer generation of backends so I will just show our solution for the 
 DirectX11 case here. 
 
